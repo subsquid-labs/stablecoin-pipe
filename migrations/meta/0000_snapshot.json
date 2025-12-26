@@ -1,0 +1,120 @@
+{
+  "id": "3a310e6d-8dfe-4677-bc20-c9540ddaf44c",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.transfers": {
+      "name": "transfers",
+      "schema": "",
+      "columns": {
+        "tokenSymbol": {
+          "name": "tokenSymbol",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tokenAddress": {
+          "name": "tokenAddress",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "network": {
+          "name": "network",
+          "type": "network",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "blockNumber": {
+          "name": "blockNumber",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "logIndex": {
+          "name": "logIndex",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "transactionIndex": {
+          "name": "transactionIndex",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "from": {
+          "name": "from",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "to": {
+          "name": "to",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rawAmount": {
+          "name": "rawAmount",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount": {
+          "name": "amount",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "transfers_blockNumber_transactionIndex_logIndex_network_tokenAddress_pk": {
+          "name": "transfers_blockNumber_transactionIndex_logIndex_network_tokenAddress_pk",
+          "columns": [
+            "blockNumber",
+            "transactionIndex",
+            "logIndex",
+            "network",
+            "tokenAddress"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "public.network": {
+      "name": "network",
+      "schema": "public",
+      "values": [
+        "ethereum-mainnet",
+        "base-mainnet",
+        "binance-mainnet"
+      ]
+    }
+  },
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
